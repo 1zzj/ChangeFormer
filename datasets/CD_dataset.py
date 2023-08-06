@@ -71,6 +71,10 @@ class ImageDataset(data.Dataset):
             self.img_name_list = [i for i in os.listdir('/mnt/g/DataSet/LEVIR-CD/subset/val/A') if
                                   not  # os.listdir文件路径顺序是混乱的
                                   i.startswith('.')]
+        if split == 'test':
+            self.img_name_list = [i for i in os.listdir('/mnt/g/DataSet/LEVIR-CD/subset/test/A') if
+                                  not  # os.listdir文件路径顺序是混乱的
+                                  i.startswith('.')]
 
         self.A_size = len(self.img_name_list)  # get the size of dataset A
         self.to_tensor = to_tensor
